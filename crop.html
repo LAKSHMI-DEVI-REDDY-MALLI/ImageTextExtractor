@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Images</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #92d76d;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: #dbd3d3dc;
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            max-width: 400px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="number"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            padding: 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        ul {
+            margin-top: 20px;
+            list-style-type: none;
+            padding: 0;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Crop Images</h1>
+        <form method="post">
+            <label for="input_folder">Input Folder:</label>
+            <input type="text" name="input_folder" id="input_folder" required>
+            
+            <label for="output_folder">Output Folder:</label>
+            <input type="text" name="output_folder" id="output_folder" required>
+            
+            <label for="crop_width">Crop Width:</label>
+            <input type="number" name="crop_width" id="crop_width" required>
+            
+            <label for="crop_height">Crop Height:</label>
+            <input type="number" name="crop_height" id="crop_height" required>
+            
+            <label for="crop_upper">Crop Upper:</label>
+            <input type="number" name="crop_upper" id="crop_upper" required>
+            
+            <label for="crop_left">Crop Left:</label>
+            <input type="number" name="crop_left" id="crop_left" required>
+            
+            <input type="submit" value="Crop">
+        </form>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>

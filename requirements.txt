@@ -1,0 +1,6 @@
+Flask==2.3.4
+Flask-SQLAlchemy==3.0.3
+Pillow==10.0.0
+pytesseract==0.7.0
+SQLAlchemy==2.0.18
+mysqlclient==2.1.1
